@@ -17,6 +17,6 @@ deploy:
   project: labdevopscloud-paulojr
   on:
     branch: main
-before_instal:
+before_install:
 - openssl aes-256-cbc -K $encrypted_255346babcd1_key -iv $encrypted_255346babcd1_iv
   -in gcp.json.enc -out ../gcp.json -d
