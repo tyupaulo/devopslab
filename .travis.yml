@@ -1,23 +1,22 @@
-# Linguagem Utilizada para Desenvolver a Aplicação
 language: python
-
-# Versão que a aplicação suporta.
 python:
-  - "3.7.9"
-
-# Instalação de Módulos que são necessários para a Aplicação.
+- 3.7.9
 install:
-  - pip install flask
-
-    # Defini o script de Teste que deve rodar toda vez que o código for alterado.
+- pip install flask
 script:
-  - python -m unittest -v test
-
-# Definir o Deploy no Heroku
+- python -m unittest -v test
 deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
+- provider: heroku
+  api_key: "$HEROKU_API_KEY"
+  edge: true
   app: devopslab-paulo
   on:
-      branch: main
+    branch: main
+- provider: gae
+  keyfile: "../gcp.json"
+  project: labdevopscloud-paulojr
+  on:
+    branch: main
+before_instal:
+- openssl aes-256-cbc -K $encrypted_255346babcd1_key -iv $encrypted_255346babcd1_iv
+  -in gcp.json.enc -out ../gcp.json -d
